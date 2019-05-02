@@ -42,6 +42,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     sql.close();
     conn.close();
     %>
-    
+    <%
+		out.println("注册成功");
+	%>
+	<%
+		response.setHeader("refresh", "2;url=login.jsp");
+	%>
   </body>
 </html>
