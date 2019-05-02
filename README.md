@@ -1,10 +1,3 @@
-# taobaoMarkets
-# market
-# market
-# market
-# market
-# market
-# market
-# market
-# test
-# test
+淘宝小卖场
+
+盗版必究！
