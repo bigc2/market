@@ -5,7 +5,7 @@
 <title>用户登录</title>
 </head>
 <body bgcolor="#e3e3e3">
-	<center>
+	<div align="center">
 		<form action="check.jsp" method="post">
 			<table>
 				<caption>用户登录</caption>
@@ -24,6 +24,7 @@
 			</table>
 		</form>
 		如果您还没有注册，请单击<a href="register.jsp">这里</a>注册！
+	</div>
 </body>
-</center>
+
 </html>

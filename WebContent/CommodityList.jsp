@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@page import="cn.edu.bzu.dao.CommodityDAO,cn.edu.bzu.entity.Commodity"%>
 <%
 	String path = request.getContextPath();
@@ -15,10 +15,17 @@ img {
 	height: 100px;
 }
 </style>
+
 <title>Commodity</title>
 </head>
 
 <body>
+	<script type="text/javascript">
+	function change() {
+		var amounts;
+		amounts = prompt("请选择你购买的数量：");
+	};
+	</script>
 	<table border="1" align="center">
 		<tr>
 			<td align="center">id</td>
@@ -42,15 +49,17 @@ img {
 			}
 		%>
 		<tr>
-			<td><a href="login.jsp"><img
+			<td><a href="#" onclick="change()"><img
 				src="https://tse1-mm.cn.bing.net/th?id=OIP.MeRU1-et9q_QheGz3ZsfEwHaF_&w=240&h=186&c=7&o=5&dpr=1.5&pid=1.7" />
 				</a>
 			</td>
-			<td><img
+			<td><a href="#" onclick="change()"><img
 				src="https://tse1-mm.cn.bing.net/th?id=OIP.ruj2_9prmxeWIpvtoNYLXgHaHa&w=218&h=218&c=7&o=5&dpr=1.5&pid=1.7" />
+				</a>
 			</td>
-			<td><img
+			<td><a href="#" onclick="change()"><img
 				src="https://tse2-mm.cn.bing.net/th?id=OIP.FkzwNaY-eHQWlVZMbFm0MAHaE7&w=292&h=194&c=7&o=5&dpr=1.5&pid=1.7" />
+				</a>
 			</td>
 		</tr>
 	</table>
