@@ -22,7 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <br>
    <%
    request.setCharacterEncoding("utf-8");
    String users=request.getParameter("username");

@@ -22,9 +22,9 @@ img {
 	<table border="1" align="center">
 		<tr>
 			<td align="center">id</td>
-			<td>name</td>
-			<td>amounts</td>
-			<td>prices</td>
+			<td align="center">name</td>
+			<td align="center">amounts</td>
+			<td align="center">prices</td>
 		</tr>
 		<%
 			CommodityDAO dao = new CommodityDAO();
@@ -42,8 +42,9 @@ img {
 			}
 		%>
 		<tr>
-			<td><img
+			<td><a href="login.jsp"><img
 				src="https://tse1-mm.cn.bing.net/th?id=OIP.MeRU1-et9q_QheGz3ZsfEwHaF_&w=240&h=186&c=7&o=5&dpr=1.5&pid=1.7" />
+				</a>
 			</td>
 			<td><img
 				src="https://tse1-mm.cn.bing.net/th?id=OIP.ruj2_9prmxeWIpvtoNYLXgHaHa&w=218&h=218&c=7&o=5&dpr=1.5&pid=1.7" />
