@@ -20,12 +20,29 @@ img {
 </head>
 
 <body>
-	<script type="text/javascript">
-	function change() {
-		var amounts;
-		amounts = prompt("请选择你购买的数量：");
-	};
-	</script>
+	<script language="javascript" type="text/javascript">
+		function change(productNumber) {
+			var value;
+			
+			if(productNumber==1) {
+				value = prompt("请输入购买数量");
+				checkValue(value, productNumber);
+			}else if(productNumber==2) {
+				value = parseInt(prompt("请输入购买数量："));
+				checkValue(value, productNumber);
+			}else if(productNumber==3) {
+				value = parseInt(prompt("请输入购买数量："));
+				checkValue(value, productNumber);
+			}
+		};
+		function checkValue(value, productNumber) {
+			if(value==null) {
+				return false;
+			}else {
+				window.location.href = "update2.jsp?para="+value+"&productNumber="+productNumber;
+			}
+		};
+    </script>
 	<table border="1" align="center">
 		<tr>
 			<td align="center">id</td>
@@ -49,18 +66,15 @@ img {
 			}
 		%>
 		<tr>
-			<td><a href="#" onclick="change()"><img
-				src="https://tse1-mm.cn.bing.net/th?id=OIP.MeRU1-et9q_QheGz3ZsfEwHaF_&w=240&h=186&c=7&o=5&dpr=1.5&pid=1.7" />
-				</a>
-			</td>
-			<td><a href="#" onclick="change()"><img
-				src="https://tse1-mm.cn.bing.net/th?id=OIP.ruj2_9prmxeWIpvtoNYLXgHaHa&w=218&h=218&c=7&o=5&dpr=1.5&pid=1.7" />
-				</a>
-			</td>
-			<td><a href="#" onclick="change()"><img
-				src="https://tse2-mm.cn.bing.net/th?id=OIP.FkzwNaY-eHQWlVZMbFm0MAHaE7&w=292&h=194&c=7&o=5&dpr=1.5&pid=1.7" />
-				</a>
-			</td>
+			<td><a href="#" onclick="change(1)"><img
+					src="https://tse1-mm.cn.bing.net/th?id=OIP.MeRU1-et9q_QheGz3ZsfEwHaF_&w=240&h=186&c=7&o=5&dpr=1.5&pid=1.7" />
+			</a></td>
+			<td><a href="#" onclick="change(2)"><img
+					src="https://tse1-mm.cn.bing.net/th?id=OIP.ruj2_9prmxeWIpvtoNYLXgHaHa&w=218&h=218&c=7&o=5&dpr=1.5&pid=1.7" />
+			</a></td>
+			<td><a href="#" onclick="change(3)"><img
+					src="https://tse2-mm.cn.bing.net/th?id=OIP.FkzwNaY-eHQWlVZMbFm0MAHaE7&w=292&h=194&c=7&o=5&dpr=1.5&pid=1.7" />
+			</a></td>
 		</tr>
 	</table>
 </body>
