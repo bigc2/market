@@ -23,9 +23,13 @@ img {
 	<script language="javascript" type="text/javascript">
 		function change(productNumber) {
 			var value;
+			var value2;
 			
 			if(productNumber==1) {
-				value = prompt("请输入购买数量");
+				value = parseInt(value2 = prompt("请输入购买数量："));
+				if(isNaN(value2)) {
+					alert("请输入数字！");
+				}
 				checkValue(value, productNumber);
 			}else if(productNumber==2) {
 				value = parseInt(prompt("请输入购买数量："));
@@ -36,7 +40,7 @@ img {
 			}
 		};
 		function checkValue(value, productNumber) {
-			if(value==null) {
+			if(isNaN(value)) {
 				return false;
 			}else {
 				window.location.href = "update2.jsp?para="+value+"&productNumber="+productNumber;
