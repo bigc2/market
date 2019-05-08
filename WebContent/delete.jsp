@@ -21,18 +21,12 @@
 </head>
 <body>
 	<%
-		request.setCharacterEncoding("utf-8");
-		//String users = request.getParameter("username");
-		//String pass = request.getParameter("pwd");
-		String para = request.getParameter("para");
-		String productNumber = request.getParameter("productNumber");
-		boolean flag = false;
+		request.setCharacterEncoding("utf-8"); //用指定的utf-8编码，request.getParameter时就用utf-8解码获取中文参数
+		String id = request.getParameter("id");
 		PreparedStatement sql = null;
-		ResultSet rs = null;
 		Connection conn = null;
 		int total = 0; //update成功的记录条数
 	%>
-
 	<%
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost/markets?characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
@@ -40,15 +34,8 @@
 		String password = "1234";
 		Class.forName(driver);
 		conn = DriverManager.getConnection(url, use, password);
-		sql = conn.prepareStatement("UPDATE commodity SET amounts=amounts-? WHERE id = ?");
-		sql.setString(1, para);
-		sql.setString(2, productNumber);
-		//sql.setString(2, pass);
-		//rs = sql.executeQuery();
-		//if (rs.next()) {
-		//	flag = true;
-		//}
-		//rs.close();
+		sql = conn.prepareStatement("DELETE FROM commodity WHERE id=?");
+		sql.setString(1, id);
 		total = sql.executeUpdate();
 		sql.close();
 		conn.close();
@@ -57,10 +44,10 @@
 	<%
 		if (total >= 1) {
 	%>
-	<jsp:forward page="CommodityList.jsp" />
+	<jsp:forward page="CommodityListForSeller.jsp" />
 	<%
 		} else if (total == 0) {
-			System.out.println("购买失败！");
+			System.out.println("添加失败！");
 		}
 	%>
 </body>

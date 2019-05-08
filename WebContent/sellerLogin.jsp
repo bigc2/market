@@ -6,7 +6,7 @@
 </head>
 <body bgcolor="#e3e3e3">
 	<div align="center">
-		<form action="check.jsp" method="post">
+		<form action="checkForSeller.jsp" method="post">
 			<table>
 				<caption>卖家登录</caption>
 				<tr>

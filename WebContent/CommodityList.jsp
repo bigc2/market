@@ -43,11 +43,12 @@ img {
 			if(isNaN(value)) {
 				return false;
 			}else {
-				window.location.href = "update2.jsp?para="+value+"&productNumber="+productNumber;
+				window.location.href = "update.jsp?para="+value+"&productNumber="+productNumber;
 			}
 		};
     </script>
 	<table border="1" align="center">
+		<caption>买家界面</caption>
 		<tr>
 			<td align="center">id</td>
 			<td align="center">name</td>

@@ -22,39 +22,42 @@
 <body>
 	<%
 		request.setCharacterEncoding("utf-8");
-		//String users = request.getParameter("username");
-		//String pass = request.getParameter("pwd");
-		String para = request.getParameter("para");
-		String productNumber = request.getParameter("productNumber");
+		String users = request.getParameter("username");
+		String pass = request.getParameter("pwd");
 		boolean flag = false;
 		PreparedStatement sql = null;
 		ResultSet rs = null;
 		Connection conn = null;
-		int total = 0; //update成功的记录条数
 	%>
 
 	<%
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost/markets?characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
+		String url = "jdbc:mysql://localhost/javaweb?characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
 		String use = "root";
 		String password = "1234";
 		Class.forName(driver);
 		conn = DriverManager.getConnection(url, use, password);
-		sql = conn.prepareStatement("UPDATE commodity SET amounts=amounts-? WHERE id = ?");
-		sql.setString(1, para);
-		sql.setString(2, productNumber);
-		total = sql.executeUpdate();
+		sql = conn.prepareStatement("select * from login where username=? and password=?");
+		sql.setString(1, users);
+		sql.setString(2, pass);
+		rs = sql.executeQuery();
+		if (rs.next()) {
+			flag = true;
+		}
+		rs.close();
 		sql.close();
 		conn.close();
 	%>
 	<!-- 判断是否是正确的登录用户 -->
 	<%
-		if (total >= 1) {
+		if (flag == true) {
 	%>
-	<jsp:forward page="CommodityList.jsp" />
+	<jsp:forward page="CommodityListForSeller.jsp" />
 	<%
-		} else if (total == 0) {
-			System.out.println("购买失败！");
+		} else if (flag == false) {
+	%>
+	<jsp:forward page="loginFail.jsp" />
+	<%
 		}
 	%>
 </body>

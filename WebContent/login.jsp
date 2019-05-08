@@ -6,7 +6,7 @@
 </head>
 <body bgcolor="#e3e3e3">
 	<div align="center">
-		<form action="check.jsp" method="post">
+		<form action="checkForBuyer.jsp" method="post">
 			<table>
 				<caption>买家登录</caption>
 				<tr>
@@ -27,5 +27,4 @@
 		如果您是卖家，请单击<a href="sellerLogin.jsp">这里</a>登陆！
 	</div>
 </body>
-
 </html>
