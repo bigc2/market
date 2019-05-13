@@ -44,10 +44,11 @@
 	<%
 		if (total >= 1) {
 	%>
-	<jsp:forward page="CommodityListForSeller.jsp" />
+			<jsp:forward page="CommodityListForSeller.jsp" />
 	<%
 		} else if (total == 0) {
-			System.out.println("添加失败！");
+			out.println("删除失败");
+		    response.setHeader("refresh", "2;url=CommodityListForSeller.jsp");
 		}
 	%>
 </body>

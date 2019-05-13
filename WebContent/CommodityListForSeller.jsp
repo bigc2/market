@@ -14,30 +14,40 @@ img {
 	width: 100px;
 	height: 100px;
 }
-.delete_right {
-    display: block;
-    cursor: pointer;
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    top: 22px;
-    right: 30px;
-    background: url(../img/icons.png) -48px -96px no-repeat;
-}
 </style>
 <!-- 引用又拍云的jQuery -->
 <script
 	src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
 <script>
-	function pop() {
+	function popInsert() {
 		$(document).ready(function() {
 			$("#layer").show();
 		});
 	};
-	function pop2() {
+	function popDelete() {
 		var id = prompt("请输入您要删除的产品id号？");
-		window.location.href = "delete.jsp?id="+id;
-	}
+		if(!isNaN(parseInt(id))) {  // isNaN(NaN) == true
+			window.location.href = "delete.jsp?id="+id;
+		}else {
+			return false;
+		}
+	};
+	function closeForm() {
+		$(document).ready(function() {
+			$("#layer").hide();
+		});
+	};
+	function checkIfEmpty() {
+		for(var i=0;i<document.paper.elements.length-1;i++)  // elements 集合可返回包含表单中所有元素的数组
+        {
+           if(document.paper.elements[i].value=="")
+           {
+              alert("当前表单不能有空项");
+              document.paper.elements[i].focus();
+              return false;
+           }
+        }
+	};
 </script>
 <title>CommodityListForSeller</title>
 </head>
@@ -65,13 +75,13 @@ img {
 		    }
 		%>
 		<tr>
-			<td><a href="#" onclick="change(1)"><img
+			<td><a href="#"><img
 					src="https://tse1-mm.cn.bing.net/th?id=OIP.MeRU1-et9q_QheGz3ZsfEwHaF_&w=240&h=186&c=7&o=5&dpr=1.5&pid=1.7" />
 			</a></td>
-			<td><a href="#" onclick="change(2)"><img
+			<td><a href="#" ><img
 					src="https://tse1-mm.cn.bing.net/th?id=OIP.ruj2_9prmxeWIpvtoNYLXgHaHa&w=218&h=218&c=7&o=5&dpr=1.5&pid=1.7" />
 			</a></td>
-			<td><a href="#" onclick="change(3)"><img
+			<td><a href="#"><img
 					src="https://tse2-mm.cn.bing.net/th?id=OIP.FkzwNaY-eHQWlVZMbFm0MAHaE7&w=292&h=194&c=7&o=5&dpr=1.5&pid=1.7" />
 			</a></td>
 		</tr>
@@ -84,15 +94,18 @@ img {
 			<td colspan="2" align="center">金手指</td>
 		</tr>
 		<tr>
-			<td><input type="button" onclick="pop()" value="新增商品记录" /></td>
+			<td><input type="button" onclick="popInsert()" value="新增商品记录" /></td>
 		</tr>
 		<tr>
-			<td><input type="button" onclick="pop2()" value="删除商品记录" /></td>
+			<td><input type="button" onclick="" value="更新商品记录" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" onclick="popDelete()" value="删除商品记录" /></td>
 		</tr>
 	</table>
-	<!-- 弹窗 -->
+	<!-- 新增商品记录弹窗 -->
 	<div id="layer" style="display: none;">
-		<form id="window" action="insert.jsp" method="post">
+		<form id="window" name="paper" action="insert.jsp" method="post" onSubmit="return checkIfEmpty()">
 			<table border=1 align="center">
 				<tr>
 					<td>商品id：</td>
@@ -113,6 +126,7 @@ img {
 				<tr>
 					<td><input type="submit" value="添加" /></td>
 					<td><input type="reset" value="重置" /></td>
+					<td><input type="button" onclick="closeForm()" value="关闭" /></td>
 				</tr>
 			</table>
 		</form>
