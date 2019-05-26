@@ -9,7 +9,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>My JSP 'check.jsp' starting page</title>
+<title>updateForSeller</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -30,24 +30,25 @@
 		PreparedStatement sql = null;
 		ResultSet rs = null;
 		Connection conn = null;
-		int total = 0; //update成功的记录条数
+		String text = "hello";
+		response.getWriter().write(text);
+		response.getWriter().close();
 	%>
-
-	<%
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost/markets?characterEncoding=utf8&serverTimezone=GMT&useSSL=false";
-		String use = "root";
-		String password = "1234";
-		Class.forName(driver);
-		conn = DriverManager.getConnection(url, use, password);
-		sql = conn.prepareStatement("UPDATE commodity SET id=? WHERE id = 1");
-		sql.setString(1, id2);
-		sql.setString(2, name2);
-		sql.setString(3, amounts2);
-		sql.setString(4, prices2);
-		total = sql.executeUpdate();
-		sql.close();
-		conn.close();
-	%>
+	<%	
+ 		String driver = "com.mysql.jdbc.Driver"; 
+		String url = "jdbc:mysql://localhost/markets?characterEncoding=utf8&serverTimezone=GMT&useSSL=false"; 
+ 		String use = "root"; 
+		String password = "1234"; 
+ 		Class.forName(driver); 
+		conn = DriverManager.getConnection(url, use, password); 
+ 		sql = conn.prepareStatement("UPDATE commodity SET name=?, amounts=?, prices=? WHERE id=?"); 
+ 		sql.setString(1, name2); 
+ 		sql.setString(2, amounts2);
+ 		sql.setString(3, prices2);
+ 		sql.setString(4, id2);
+ 		sql.executeUpdate(); 
+		sql.close(); 
+ 		conn.close(); 
+ 	%>
 </body>
 </html>

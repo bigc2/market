@@ -11,11 +11,11 @@
 				<caption>买家登录</caption>
 				<tr>
 					<td>用户名:</td>
-					<td><input type="text" name="username" size="20" /></td>
+					<td><input type="text" name="username" size="20" required="required"/></td>
 				</tr>
 				<tr>
 					<td>密码:</td>
-					<td><input type="text" name="pwd" size="20" /></td>
+					<td><input type="text" name="pwd" size="20" required="required"/></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="登录" />
