@@ -9,6 +9,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
    
 //该注解用来指定一个URI，客户端可以通过这个URI来连接到WebSocket。类似Servlet的注解mapping。无需在web.xml中配置。
+// 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个websocket服务器端。注解的值将被用于监听用户连接的终端访问URL地址。
 @ServerEndpoint("/displayFormOfDB")
 public class MyWebSocket {
   // 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
@@ -26,6 +27,7 @@ public class MyWebSocket {
    * @param session
    *          可选的参数。session为与某个客户端的连接会话，需要通过它来给客户端发送数据
    */
+  // 打开一个新连接，即有新连接时，会调用被此注解的方法。
   @OnOpen
   public void onOpen(Session session) {
     this.session = session;
@@ -37,6 +39,7 @@ public class MyWebSocket {
   /**
    * 连接关闭调用的方法
    */
+  // 关闭连接时调用。
   @OnClose
   public void onClose() {
     webSocketSet.remove(this); // 从set中删除
@@ -52,6 +55,7 @@ public class MyWebSocket {
    * @param session
    *          可选的参数
    */
+  // 当服务器接收到客户端发送的消息时所调用的方法。
   @OnMessage
   public void onMessage(String message, Session session) {
     System.out.println("来自客户端的消息:" + message);

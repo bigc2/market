@@ -51,7 +51,7 @@ img {
 			window.location.href = "login.jsp";
 		}
 		function sendMsg() {
-			window.location.href = "chat.jsp";
+			window.open("http://bigc.nat123.cc/displayFormOfDB/chat.jsp");
 		}
 	</script>
 	<table  id="content" border="1" align="center">

@@ -115,7 +115,7 @@ td {
 		window.location.href = "login.jsp";
 	}
 	function sendPackage() {
-		window.open("http://localhost:80/displayFormOfDB/chat.jsp");
+		window.open("http://bigc.nat123.cc/displayFormOfDB/chat.jsp");
 	}
 </script>
 <title>CommodityListForSeller</title>
