@@ -7,7 +7,7 @@ import cn.edu.bzu.entity.Commodity;
 
 public class CommodityDAO {
 	public List readFirstTitle(){
-		         List<Commodity> list =new ArrayList<Commodity>();
+		         List<Commodity> list =new ArrayList<Commodity>(); // list只能放入Commodity类型的对象
 		         Connection con=null;
 		         PreparedStatement psmt=null;
 		         ResultSet rs=null;
@@ -30,7 +30,7 @@ public class CommodityDAO {
 		                 int amounts=rs.getInt("amounts");
 		                 double prices=rs.getDouble("prices");
 		                 Commodity tl=new Commodity(id, name, amounts, prices);
-		                 list.add(tl);
+		                 list.add(tl); // 加入一条记录
 		             }
 		             
 		         } catch (SQLException e) {

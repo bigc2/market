@@ -1,9 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@page import="cn.edu.bzu.dao.CommodityDAO,cn.edu.bzu.entity.Commodity"%>
 <%
-    String path = request.getContextPath();
-			String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ path + "/";
+//     String path = request.getContextPath();
+// 			String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+// 					+ path + "/";
 %>
 
 <!DOCTYPE>
@@ -115,7 +115,7 @@ td {
 		window.location.href = "login.jsp";
 	}
 	function sendPackage() {
-		window.open("http://bigc.nat123.cc/displayFormOfDB/chat.jsp");
+		window.open("http://localhost:80/displayFormOfDB/chat.jsp");
 	}
 </script>
 <title>CommodityListForSeller</title>

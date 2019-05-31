@@ -42,7 +42,7 @@
 <body bgcolor="#e3e3e3">
 	<center>
 			<h2>用户注册</h2>
-			<form action="check2.jsp" method="post"
+			<form action="checkRegister.jsp" method="post"
 				onSubmit="return isValid(this);">
 				<table>
 					<tr>

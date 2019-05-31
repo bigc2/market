@@ -22,8 +22,6 @@
 <body>
 	<%
 		request.setCharacterEncoding("utf-8");
-		//String users = request.getParameter("username");
-		//String pass = request.getParameter("pwd");
 		String para = request.getParameter("para");
 		String productNumber = request.getParameter("productNumber");
 		boolean flag = false;

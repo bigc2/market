@@ -51,7 +51,7 @@ img {
 			window.location.href = "login.jsp";
 		}
 		function sendMsg() {
-			window.open("http://bigc.nat123.cc/displayFormOfDB/chat.jsp");
+			window.open("http://localhost:80/displayFormOfDB/chat.jsp");
 		}
 	</script>
 	<table  id="content" border="1" align="center">
@@ -67,8 +67,8 @@ img {
 		<tbody>
 			<%
 			    CommodityDAO dao = new CommodityDAO();
-			    List<Commodity> list = dao.readFirstTitle();
-			    for (Commodity tl : list) {
+			    List<Commodity> list = dao.readFirstTitle(); 
+			    for (Commodity tl : list) { // for (循环变量类型 循环变量名称 : 要被遍历的对象)
 			%>
 			<tr>
 				<td><%=tl.getId()%></td>

@@ -35,7 +35,7 @@ body {
 	var websocket = null;
 	//判断当前浏览器是否支持WebSocket
 	if ('WebSocket' in window) {
-		websocket = new WebSocket("ws://bigc.nat123.cc/displayFormOfDB/displayFormOfDB"); // 指定连接的URL
+		websocket = new WebSocket("ws://localhost:80/displayFormOfDB/displayFormOfDB"); // 指定连接的URL
 	} else {
 		alert('您的浏览器不支持 websocket！');
 	}
@@ -74,6 +74,7 @@ body {
 	//关闭连接
 	function closeWebSocket() {
 		websocket.close();
+		window.close();
 	}
 
 	//向服务器发送数据
